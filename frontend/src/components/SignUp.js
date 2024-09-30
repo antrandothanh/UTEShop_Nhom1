@@ -76,7 +76,7 @@ function SignUp(props) {
                         <label className='ml-2 font-semibold'>Hiện mật khẩu.</label>
                     </div>
                     <div>
-                        <Link className='text-blue-500 hover:text-indigo-800 font-semibold underline transition-all duration-300' to='/reset-password'>Quên mật khẩu?</Link>
+                        <Link className='text-blue-500 hover:text-indigo-800 font-semibold underline transition-all duration-300' to='/login'>Đăng nhập</Link>
                     </div>
                 </div>
                 <div className='mt-5'>

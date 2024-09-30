@@ -3,23 +3,15 @@ import dotenv from 'dotenv'
 
 dotenv.config()
 
-const db = mysql.createConnection({
+export const db = mysql.createConnection({
     host: process.env.MYSQL_HOST,
     user: process.env.MYSQL_USER,
     password: process.env.MYSQL_PASSWORD,
     database: process.env.MYSQL_DATABASE
-})
-
+});
 //Code ở bên dưới
 
 
-// db.connect((err) => {
-//     if (err) {
-//         console.error('Error connecting to database:', err);
-//     } else {
-//         console.log('Connected to database');
-//     }
-// });
 
 export async function addNewUserOTP(role, fullname, email, password, otp) {
     return new Promise((resolve, reject) => {
@@ -28,7 +20,7 @@ export async function addNewUserOTP(role, fullname, email, password, otp) {
                 return reject(err);
             }
             
-            const sql = 'INSERT INTO users (role, fullname, email, password, otp) VALUES (?, ?, ?, ?, ?)';
+            const sql = 'INSERT INTO userotps (role, fullname, email, password, otp) VALUES (?, ?, ?, ?, ?)';
             db.query(sql, [role, fullname, email, password, otp], (err, results) => {
                 if (err) {
                     console.error('Error inserting user:', err);
@@ -49,7 +41,7 @@ export async function verifyOtp(email) {
                 return reject(err)
             }
 
-            const sql = 'SELECT otp FROM users WHERE email = ?'
+            const sql = 'SELECT otp FROM userotps WHERE email = ?'
             db.query(sql, [email], (err, results) => {
                 if (err) {
                     console.error('Error fetching user')

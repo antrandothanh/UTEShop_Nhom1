@@ -1,28 +1,25 @@
 import express from 'express'
 import cors from 'cors'
 import { generateOTP, sendOTP } from './otpSender.js'
-import { addNewUserOTP } from './database.js'
+import { addNewUserOTP, db } from './database.js'
+import authRoutes from './routes/auth.js';
+
+/**Dieu*********** */
 
 const app = express()
 app.use(cors())
-app.use(express.json())
-
+app.use(express.json()); // Để phân tích JSON trong body
 const PORT = 5000
 
 app.listen(PORT, () => {
     console.log(`Server is running in port ${PORT}...`)
 })
 
+// Sử dụng router cho chức năng auth
+app.use('/api/auth', authRoutes(db));
 
-//code các phương thức get, post, delete, put ở dưới đây
 
-app.get("/", (req, res) => {
-    const message = {
-        message: "Test..."
-    }
-    res.json(message)
-})
-
+/*****************************************/
 
 //sign up route
 app.post('/sign-up', async (req, res) => {
@@ -55,6 +52,4 @@ app.post('/verify-otp', async (req, res) => {
 
     const result = await verifyOtp(email)
 });
-
-/*****************************************/
 
