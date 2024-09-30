@@ -17,7 +17,7 @@ const Login = () => {
             localStorage.setItem('token', response.data.token);
             console.log("Đăng nhập thành công");
             // Chuyển hướng đến trang khác
-            window.location.href = '/HomePage'; // Chuyển hướng đến trang dashboard
+            window.location.href = '/home-page'; // Chuyển hướng đến trang dashboard
         } catch (err) {
             console.error(err); // Ghi lại toàn bộ lỗi 
             setError(err.response ? err.response.data.message : 'Đã xảy ra lỗi. Vui lòng thử lại.');
