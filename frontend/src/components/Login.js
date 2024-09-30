@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import axios from 'axios';
 
 const Login = () => {
-    const [username, setUsername] = useState('');
+    const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
     const [error, setError] = useState('');
     const [loading, setLoading] = useState(false); // Thêm trạng thái loading
@@ -13,7 +13,7 @@ const Login = () => {
         setError(''); // Xóa lỗi trước đó
 
         try {
-            const response = await axios.post('http://localhost:5000/api/auth/login', { username, password });
+            const response = await axios.post('http://localhost:5000/api/auth/login', { email, password });
             localStorage.setItem('token', response.data.token);
             console.log("Đăng nhập thành công");
             // Chuyển hướng đến trang khác
@@ -37,18 +37,18 @@ const Login = () => {
             <div className="mt-10 sm:mx-auto sm:w-full sm:max-w-sm">
                 <form onSubmit={handleLogin} className="space-y-6">
                     <div>
-                        <label htmlFor="username" className="block text-sm font-medium leading-6 text-gray-900">
-                            Tên người dùng
+                        <label htmlFor="email" className="block text-sm font-medium leading-6 text-gray-900">
+                            Địa chỉ email
                         </label>
                         <div className="mt-2">
                             <input
-                                id="username"
-                                name="username"
+                                id="email"
+                                name="email"
                                 type="text"
                                 required
-                                autoComplete="username"
-                                value={username}
-                                onChange={(e) => setUsername(e.target.value)}
+                                autoComplete="email"
+                                value={email}
+                                onChange={(e) => setEmail(e.target.value)}
                                 className="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
                             />
                         </div>
@@ -94,7 +94,7 @@ const Login = () => {
 
                 <p className="mt-10 text-center text-sm text-gray-500">
                     Chưa có tài khoản?{' '}
-                    <a href="#" className="font-semibold leading-6 text-indigo-600 hover:text-indigo-500">
+                    <a href="/sign-up" className="font-semibold leading-6 text-indigo-600 hover:text-indigo-500">
                         Đăng kí ngay!
                     </a>
                 </p>
