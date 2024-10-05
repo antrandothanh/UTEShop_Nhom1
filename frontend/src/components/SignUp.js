@@ -45,10 +45,14 @@ function SignUp(props) {
     }
 
     return (
-        <div className='flex justify-center items-center h-screen bg-indigo-600'>
-            <div className='w-96 p-6 shadow-lg bg-white rounded-md'>
-                <h1 className='text-3xl block text-center font-bold'>ĐĂNG KÝ</h1>
-                <hr className='mt-3' />
+        <div className='flex min-h-full flex-1 flex-col justify-center px-6 py-12 lg:px-8'>
+            <div className="sm:mx-auto sm:w-full sm:max-w-sm">
+                <h2 className="mt-10 text-center text-2xl font-bold leading-9 tracking-tight text-gray-900">
+                    ĐĂNG KÝ TÀI KHOẢN
+                </h2>
+            </div>
+            <div className='mt-10 sm:mx-auto sm:w-full sm:max-w-sm'>
+                
                 <div className='mt-3 select-none' id='dropdownButton'>
                     <div onClick={toggleDropdown} className='cursor-pointer border border-indigo-700 p-2 w-full flex items-center justify-between font-semibold rounded-md active:border-white duration-300 active:text-white'>
                         {selectedRole}
