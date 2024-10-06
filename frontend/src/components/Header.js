@@ -11,7 +11,7 @@ const Header = () => {
                     <ul className='flex'>
                         <li className='mx-10 font-bold hover:text-indigo-700'><NavLink to='/'>TRANG CHỦ</NavLink></li>
                         <li className='mx-10 font-bold hover:text-indigo-700'><NavLink to='/cart'>GIỎ HÀNG</NavLink></li>
-                        <li className='mx-10 font-bold hover:text-indigo-700'><NavLink to='/about'>VỀ CHÚNG TÔI</NavLink></li>
+                        <li className='mx-10 font-bold hover:text-indigo-700'><NavLink to='/about-us'>VỀ CHÚNG TÔI</NavLink></li>
                         <li className='mx-10 font-bold hover:text-indigo-700'><NavLink to='/login'>ĐĂNG NHẬP</NavLink></li>
                         <li className='mx-10 font-bold hover:text-indigo-700'><NavLink to='/sign-up'>ĐĂNG KÝ</NavLink></li>
                     </ul>

@@ -104,6 +104,9 @@ export default function HomePage() {
         <div>
             <div className='p-8'>
                 <div className='bg-gray-200 mb-10 p-3'>
+                    <div className='flex justify-center text-2xl mb-2 font-semibold uppercase'>
+                        Sản phẩm của chúng tôi
+                    </div>
                     <div className='flex justify-center text-xl mb-2 font-semibold '>
                         Tìm kiếm
                     </div>
