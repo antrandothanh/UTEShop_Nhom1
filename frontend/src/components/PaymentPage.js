@@ -28,20 +28,20 @@ const PaymentPage = () => {
             <div>
                 <div class="grid gap-6 mb-6 md:grid-cols-2">
                     <div>
-                        <label class="block mb-2 font-medium text-gray-900 dark:text-white">Họ tên người nhận</label>
-                        <input type="text" class="bg-gray-50 border border-gray-300 text-gray-900 rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" placeholder="Ví dụ: Nguyễn Văn A" required />
+                        <label class="block mb-2 font-medium text-gray-900">Họ tên người nhận</label>
+                        <input type="text" class="bg-gray-50 border border-gray-300 text-gray-900 rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 " placeholder="Ví dụ: Nguyễn Văn A" required />
                     </div>
                     <div>
-                        <label class="block mb-2 font-medium text-gray-900 dark:text-white">Số điện thoại</label>
-                        <input type="text" class="bg-gray-50 border border-gray-300 text-gray-900 rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" placeholder="Ví dụ: 0901243267" required />
+                        <label class="block mb-2 font-medium text-gray-900 ">Số điện thoại</label>
+                        <input type="text" class="bg-gray-50 border border-gray-300 text-gray-900 rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 " placeholder="Ví dụ: 0901243267" required />
                     </div>
                     <div>
-                        <label class="block mb-2 font-medium text-gray-900 dark:text-white">Địa chỉ</label>
-                        <input type="text" class="bg-gray-50 border border-gray-300 text-gray-900 rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" required />
+                        <label class="block mb-2 font-medium text-gray-900 ">Địa chỉ</label>
+                        <input type="text" class="bg-gray-50 border border-gray-300 text-gray-900 rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 " required />
                     </div>
                     <div>
-                        <label class="block mb-2 font-medium text-gray-900 dark:text-white">Phương thức thanh toán</label>
-                        <select class="bg-gray-50 border border-gray-300 text-gray-900 rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500">
+                        <label class="block mb-2 font-medium text-gray-900 ">Phương thức thanh toán</label>
+                        <select class="bg-gray-50 border border-gray-300 text-gray-900 rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 ">
                             <option selected>Chọn 1 cách thanh toán</option>
                             <option value="cash">Tiền mặt khi nhận hàng (COD)</option>
                             <option value="banking">Chuyển khoản</option>
@@ -50,8 +50,8 @@ const PaymentPage = () => {
                 </div>
             </div>
             <div class="relative overflow-x-auto">
-                <table class="w-full mb-3 text-left rtl:text-right text-gray-500 dark:text-gray-400">
-                    <thead class=" text-gray-700 uppercase bg-gray-50 dark:bg-gray-700 dark:text-gray-400">
+                <table class="w-full mb-3 text-left rtl:text-right text-gray-500 ">
+                    <thead class=" text-gray-700 uppercase bg-gray-50 ">
                         <tr>
                             <th scope="col" class="px-6 py-3">
                                 Sản phẩm

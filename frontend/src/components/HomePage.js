@@ -1,7 +1,8 @@
-import React from 'react';
+import React, {useState, useEffect} from 'react';
 import ProductCard from './ProductCard.js';
+import UrlComponent from './UrlComponent.js';
 
-export default function HomePage() {
+export default function HomePage({sendLocationToParent}) {
     const products = [
         {
             name: 'Bánh Tiramisu',
@@ -99,9 +100,19 @@ export default function HomePage() {
             name: 'Bánh Xèo',
             price: '20.0000đ'
         },
-    ]
+    ];
+    const [location, setLocation] = useState('');
+    const receiveLocationFromChildren = (childrenLocation) => {
+        setLocation(childrenLocation);
+    }
+
+    useEffect(() => {
+        sendLocationToParent(location);
+    }, [location]);
+
     return (
         <div>
+            <UrlComponent sendLocationToParent={receiveLocationFromChildren}/>
             <div className='p-8'>
                 <div className='bg-gray-200 mb-10 p-3'>
                     <div className='flex justify-center text-2xl mb-2 font-semibold uppercase'>

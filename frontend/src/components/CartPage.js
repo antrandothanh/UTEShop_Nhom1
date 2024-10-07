@@ -1,7 +1,8 @@
-import React from 'react';
+import React, {useState, useEffect} from 'react';
 import {NavLink} from 'react-router-dom'
 import CartItem from './CartItem.js';
-const CartPage = () => {
+import UrlComponent from './UrlComponent.js';
+const CartPage = ({sendLocationToParent}) => {
     const cartItems = [
         {
             name: 'Bánh Tiramisu',
@@ -20,8 +21,18 @@ const CartPage = () => {
         },
     ];
 
+    const [location, setLocation] = useState('');
+    const receiveLocationFromChildren = (childrenLocation) => {
+        setLocation(childrenLocation);
+    }
+
+    useEffect(() => {
+        sendLocationToParent(location);
+    }, [location]);
+
     return (
         <div className='p-8'>
+            <UrlComponent sendLocationToParent={receiveLocationFromChildren}/>
             <div className='bg-gray-200 mb-10 p-3'>
                 <div className='flex justify-center text-2xl mb-2 font-semibold uppercase'>
                     Giỏ hàng của bạn
