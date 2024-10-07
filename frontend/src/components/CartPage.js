@@ -1,6 +1,7 @@
-import React from 'react';
+import React, {useState, useEffect} from 'react';
 import {NavLink} from 'react-router-dom'
 import CartItem from './CartItem.js';
+import Header from './Header.js';
 const CartPage = () => {
     const cartItems = [
         {
@@ -21,7 +22,9 @@ const CartPage = () => {
     ];
 
     return (
-        <div className='p-8'>
+        <div>
+            <Header/>
+            <div className='p-8'>
             <div className='bg-gray-200 mb-10 p-3'>
                 <div className='flex justify-center text-2xl mb-2 font-semibold uppercase'>
                     Giỏ hàng của bạn
@@ -35,6 +38,7 @@ const CartPage = () => {
             <div className='flex justify-center'>
                 <NavLink to='/payment' className='border border-indigo-700 bg-indigo-800 text-2xl text-white py-5 px-10 rounded-md hover:bg-transparent hover:text-indigo-800 font-semibold uppercase'>Thanh toán</NavLink>
             </div>
+        </div>
         </div>
     );
 }

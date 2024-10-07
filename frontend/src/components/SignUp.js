@@ -1,13 +1,14 @@
 import React, { useState } from 'react';
 import { Link } from 'react-router-dom'
-import axios from 'axios'
+import axios from 'axios';
+import Header from './Header';
 
-function SignUp(props) {
+function SignUp() {
     // State to store the selected option
     const [selectedRole, setSelectedOption] = useState('Chọn vai trò');
-    const [fullname, setFullname] = useState('')
-    const [email, setEmail] = useState('')
-    const [password, setPassword] = useState('')
+    const [fullname, setFullname] = useState('');
+    const [email, setEmail] = useState('');
+    const [password, setPassword] = useState('');
 
     // Toggle dropdown visibility
     const toggleDropdown = () => {
@@ -44,8 +45,11 @@ function SignUp(props) {
         }
     }
 
+
     return (
-        <div className='flex min-h-full flex-1 flex-col justify-center px-6 py-12 lg:px-8'>
+        <div>
+            <Header/>
+            <div className='flex min-h-full flex-1 flex-col justify-center px-6 py-12 lg:px-8'>
             <div className="sm:mx-auto sm:w-full sm:max-w-sm">
                 <h2 className="mt-10 text-center text-2xl font-bold leading-9 tracking-tight text-gray-900">
                     ĐĂNG KÝ TÀI KHOẢN
@@ -87,6 +91,7 @@ function SignUp(props) {
                     <button onClick={sendDataToBackend} className='border-2 border-indigo-700 bg-indigo-700 text-white py-2 w-full rounded-md hover:bg-transparent hover:text-indigo-700 font-semibold'>ĐĂNG KÝ</button>
                 </div>
             </div>
+        </div>
         </div>
     );
 }
