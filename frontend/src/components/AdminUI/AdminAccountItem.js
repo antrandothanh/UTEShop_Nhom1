@@ -5,7 +5,7 @@ const AdminAccountItem = ({ account }) => {
     return (
         <tr class="bg-white border-b">
             <th scope="row" class="px-6 py-4 font-normal text-gray-900">
-                <NavLink className={`hover:text-blue-600 hover:underline`}>{account.name}</NavLink>
+                <NavLink className={`hover:text-blue-600 hover:underline`} to='./id'>{account.name}</NavLink>
             </th>
             <td class="px-6 py-4">
                 {account.createDate}
