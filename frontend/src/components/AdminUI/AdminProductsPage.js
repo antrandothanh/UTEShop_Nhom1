@@ -1,8 +1,8 @@
-import React, {useState, useEffect} from 'react';
-import ProductCard from './ProductCard.js';
-import Header from './Header.js'
+import React from 'react';
+import {NavLink} from 'react-router-dom'
+import AdminProductItem from './AdminProductItem';
 
-export default function HomePage() {
+const AdminProductsPage = () => {
     const products = [
         {
             name: 'Bánh Tiramisu',
@@ -101,42 +101,41 @@ export default function HomePage() {
             price: '20.0000đ'
         },
     ];
-
     return (
-        <div>
-            <Header/>
-            <div className='p-8'>
-                <div className='bg-gray-200 mb-10 p-3'>
-                    <div className='flex justify-center text-2xl mb-2 font-semibold uppercase'>
-                        Sản phẩm của chúng tôi
-                    </div>
-                    <div className='flex justify-center text-xl mb-2 font-semibold '>
-                        Tìm kiếm
-                    </div>
-                    <div className='flex justify-center mb-2 font-semibold '>
-                        <input type='text' className='border w-1/6 text-base px-2 py-1 focus:outline-none focus:ring-0 focus:border-gray-600' placeholder='Nhập tên sản phẩm' />
-                    </div>
-                    <div className='flex text-xl mb-2 font-semibold justify-center'>
-                        Sắp xếp theo
-                    </div>
-                    <div className='flex justify-center'>
-                        <div className='mx-2'>
-                            <button className='ml-auto border border-indigo-700 bg-indigo-800 text-white p-2 rounded-md hover:bg-transparent hover:text-indigo-800 font-semibold'>Giá tăng dần</button>
-                        </div>
-                        <div className='mx-2'>
-                            <button className='ml-auto border border-indigo-700 bg-indigo-800 text-white p-2 rounded-md hover:bg-transparent hover:text-indigo-800 font-semibold'>Giá giảm dần</button>
-                        </div>
-                    </div>
+        <div class="p-4 sm:ml-64">
+            <div class="p-4 border-2 border-gray-200 border-dashed rounded-lg">
+                <div class="relative overflow-x-auto shadow-md sm:rounded-lg">
+                    <table class="w-full text-sm text-left rtl:text-right text-gray-500">
+                        <caption class="p-5 text-lg font-semibold text-left rtl:text-right text-gray-900 bg-white dark:text-white dark:bg-gray-800">
+                            Quản lý sản phẩm
+                            <p class="mt-1 text-sm font-normal text-blue-600 hover:underline"><NavLink to='./create'>Thêm sản phẩm</NavLink></p>
+                        </caption>
+                        <thead class="text-xs text-gray-700 uppercase bg-gray-50">
+                            <tr>
+                                <th scope="col" class="px-6 py-3">
+                                    Sản phẩm
+                                </th>
+                                <th scope="col" class="px-6 py-3">
+                                    Giá tiền
+                                </th>
+                                <th scope="col" class="px-6 py-3">
+                                </th>
+                                <th scope="col" class="px-6 py-3">
+                                </th>
+                            </tr>
 
+                        </thead>
+                        <tbody>
+                            {products.map((product, index) => (
+                                <AdminProductItem key={index} item={product} />
+                            ))}
+                        </tbody>
+                    </table>
                 </div>
-                <div className='flex px-40'>
-                    <div className='flex flex-wrap gap-10 justify-center'>
-                        {products.map((product, index) => (
-                            <ProductCard key={index} product={product} />
-                        ))}
-                    </div>
-                </div>
+
             </div>
         </div>
     );
 }
+
+export default AdminProductsPage;
