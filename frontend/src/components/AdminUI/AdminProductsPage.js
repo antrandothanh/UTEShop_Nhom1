@@ -5,102 +5,63 @@ import AdminProductItem from './AdminProductItem';
 const AdminProductsPage = () => {
     const products = [
         {
-            name: 'Bánh Tiramisu',
-            price: '30.0000đ'
+            id: 1,
+            name: "Áo Thun Nike",
+            color: "vàng",
+            size: "XXL",
+            description: "100% vải cotton thấm mồ hôi",
+            price: 220000,
+            category_id: 1
         },
         {
-            name: 'Bánh trung thu',
-            price: '45.0000đ'
+            id: 2,
+            name: "Áo Polo Nike",
+            color: "đen",
+            size: "XXL",
+            description: "100% vải cotton thấm mồ hôi",
+            price: 220000,
+            category_id: 1
         },
         {
-            name: 'Bánh Bông Lan',
-            price: '20.0000đ'
+            id: 1,
+            name: "Áo Manchester United",
+            color: "đỏ",
+            size: "XXL",
+            description: "100% vải cotton thấm mồ hôi",
+            price: 220000,
+            category_id: 1
         },
         {
-            name: 'Tokkbokki Siu Cay',
-            price: '25.0000đ'
+            id: 1,
+            name: "Quần Tây Nam Đẹp",
+            color: "đen",
+            size: "XXL",
+            description: "100% vải cotton thấm mồ hôi",
+            price: 220000,
+            category_id: 2
         },
         {
-            name: 'Bánh Xèo',
-            price: '20.0000đ'
-        },
-        {
-            name: 'Sinh Tố matcha',
-            price: '15.0000đ'
-        },
-        {
-            name: 'Bánh Bông Lan',
-            price: '20.0000đ'
-        },
-        {
-            name: 'Tokkbokki Siu Cay',
-            price: '25.0000đ'
-        },
-        {
-            name: 'Bánh Xèo',
-            price: '20.0000đ'
-        },
-        {
-            name: 'Sinh Tố matcha',
-            price: '15.0000đ'
-        },
-        {
-            name: 'Sinh Tố matcha',
-            price: '15.0000đ'
-        },
-        {
-            name: 'Bánh Bông Lan',
-            price: '20.0000đ'
-        },
-        {
-            name: 'Tokkbokki Siu Cay',
-            price: '25.0000đ'
-        },
-        {
-            name: 'Bánh Xèo',
-            price: '20.0000đ'
-        },
-        {
-            name: 'Sinh Tố matcha',
-            price: '15.0000đ'
-        },
-        {
-            name: 'Bánh Tiramisu',
-            price: '30.0000đ'
-        },
-        {
-            name: 'Bánh trung thu',
-            price: '45.0000đ'
-        },
-        {
-            name: 'Bánh Bông Lan',
-            price: '20.0000đ'
-        },
-        {
-            name: 'Tokkbokki Siu Cay',
-            price: '25.0000đ'
-        },
-        {
-            name: 'Bánh Xèo',
-            price: '20.0000đ'
-        },
-        {
-            name: 'Sinh Tố matcha',
-            price: '15.0000đ'
-        },
-        {
-            name: 'Bánh Bông Lan',
-            price: '20.0000đ'
-        },
-        {
-            name: 'Tokkbokki Siu Cay',
-            price: '25.0000đ'
-        },
-        {
-            name: 'Bánh Xèo',
-            price: '20.0000đ'
+            id: 1,
+            name: "Quần Jean Nam Phong Cách",
+            color: "xanh",
+            size: "XXL",
+            description: "100% vải cotton thấm mồ hôi",
+            price: 220000,
+            category_id: 2
         },
     ];
+    
+    const categories = [
+        {
+            id: 1,
+            name: "Áo"
+        },
+        {
+            id: 2,
+            name: "Quần"
+        },
+    ]
+
     return (
         <div class="p-4 sm:ml-64">
             <div class="p-4 border-2 border-gray-200 border-dashed rounded-lg">
@@ -116,7 +77,7 @@ const AdminProductsPage = () => {
                                     Sản phẩm
                                 </th>
                                 <th scope="col" class="px-6 py-3">
-                                    Giá tiền
+                                    Loại sản phẩm
                                 </th>
                                 <th scope="col" class="px-6 py-3">
                                 </th>
@@ -126,9 +87,10 @@ const AdminProductsPage = () => {
 
                         </thead>
                         <tbody>
-                            {products.map((product, index) => (
-                                <AdminProductItem key={index} item={product} />
-                            ))}
+                            {products.map(product => {
+                                const category = categories.find(category => category.id === product.category_id);
+                                return <AdminProductItem key={product.id} product={product} category={category} />
+                            })}
                         </tbody>
                     </table>
                 </div>

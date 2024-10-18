@@ -7,6 +7,7 @@ import AdminProductsPage from './AdminProductsPage.js';
 import AdminCreateProductPage from './AdminCreateProductPage.js';
 import AdminCustomerAccountsPage from './AdminCustomerAccounts.Page.js';
 import AdminCustomerAccountDetail from './AdminCustomerAccountDetail.js';
+import AdminUpdateProductPage from './AdminUpdateProductPage.js'
 
 const AdminLayout = () => {
     return (
@@ -19,6 +20,7 @@ const AdminLayout = () => {
                 <Route path='/products/create' element={<AdminCreateProductPage />} />
                 <Route path='/accounts' element={<AdminCustomerAccountsPage />} />
                 <Route path='/accounts/id' element={<AdminCustomerAccountDetail />} />
+                <Route path='/update-product' element={<AdminUpdateProductPage />} />
             </Routes>
         </div>
     );
