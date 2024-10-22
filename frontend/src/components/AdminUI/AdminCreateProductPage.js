@@ -5,7 +5,7 @@ const AdminCreateProductPage = () => {
         <div className='p-4 sm:ml-64'>
             <div className='p-4 border-2 border-gray-200 border-dashed rounded-lg'>
                 <div class="p-5 text-lg font-semibold text-center rtl:text-center text-gray-900 bg-white">
-                    Quản lý sản phẩm
+                    Quản lý sản phẩm | Thêm sản phẩm mới
                 </div>
                 <form>
                     <div class="grid gap-6 mb-6 md:grid-cols-2">
