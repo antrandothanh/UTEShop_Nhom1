@@ -1,7 +1,7 @@
 import express from 'express'
 import cors from 'cors'
-import { generateOTP, sendOTP } from './otpSender.js'
-import { addNewUserOTP, db } from './database.js'
+//import { generateOTP, sendOTP } from './otpSender.js'
+import { signUpNewUserAccount, db } from './database.js'
 import authRoutes from './routes/auth.js';
 
 /**Dieu*********** */
@@ -22,34 +22,46 @@ app.use('/api/auth', authRoutes(db));
 /*****************************************/
 
 //sign up route
-app.post('/sign-up', async (req, res) => {
+app.post('/api/sign-up', async (req, res) => {
 
-    const { role, fullname, email, password } = req.body;
+    const { role, name, email, password, phone } = req.body;
 
-    if (!role || !fullname || !email || !password) {
+    if (!role || !name || !email || !password || !phone) {
         return res.status(400).json({ error: 'All fields are required' });
     }
 
-    const otp = generateOTP();
-
-    const result = await addNewUserOTP(role, fullname, email, password, otp);
-
+    const result = await signUpNewUserAccount(role, name, email, password, phone);
     if (!result) {
-        console.error('Query unsuccessfully!')
-    } else {
-        sendOTP(email, otp)
-        res.status(200).json({ message: 'User created. OTP sent to email.' });
+        console.error("Query unsuccessfully!");
     }
+    else {
+        res.status(200).json(
+            {
+                message: "New user was created!",
+            }
+        );
+    }
+
+    //const otp = generateOTP();
+
+    //const result = await addNewUserOTP(role, fullname, email, password, otp);
+
+    // if (!result) {
+    //     console.error('Query unsuccessfully!')
+    // } else {
+    //     //sendOTP(email, otp)
+    //     res.status(200).json({ message: 'User created.' });
+    // }
 });
 
 // OTP verification route
-app.post('/verify-otp', async (req, res) => {
-    const { email, otp } = req.body;
+// app.post('/verify-otp', async (req, res) => {
+//     const { email, otp } = req.body;
 
-    if (!email || !otp) {
-        return res.status(400).json({ error: 'Email and OTP are required' });
-    }
+//     if (!email || !otp) {
+//         return res.status(400).json({ error: 'Email and OTP are required' });
+//     }
 
-    const result = await verifyOtp(email)
-});
+//     const result = await verifyOtp(email)
+// });
 
