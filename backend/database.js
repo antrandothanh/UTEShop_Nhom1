@@ -34,6 +34,52 @@ export async function signUpNewUserAccount(role, name, email, password, phone) {
     });
 }
 
+export async function getAllProducts() {
+    return new Promise((resolve, reject) => {
+        db.connect((error) => {
+            if (error) {
+                return reject(error);
+            }
+            else {
+                const sql = "SELECT * FROM products";
+                db.query(sql, (error, results) => {
+                    if (error) {
+                        console.error("Error get all products: ", error);
+                        return reject(error);
+                    }
+                    else {
+                        console.log("Get successfully!");
+                        resolve(results);
+                    }
+                });
+            }
+        });
+    });
+}
+
+export async function getAllCategories() {
+    return new Promise((resolve, reject) => {
+        db.connect((error) => {
+            if (error) {
+                return reject(error);
+            }
+            else {
+                const sql = "SELECT * FROM categories";
+                db.query(sql, (error, results) => {
+                    if (error) {
+                        console.error("Error get all categories: ", error);
+                        return reject(error);
+                    }
+                    else {
+                        console.log("Get successfully!");
+                        resolve(results);
+                    }
+                })
+            }
+        })
+    });
+}
+
 // export async function addNewUserOTP(role, fullname, email, password, otp) {
 //     return new Promise((resolve, reject) => {
 //         db.connect((err) => {

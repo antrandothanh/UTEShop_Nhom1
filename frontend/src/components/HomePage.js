@@ -1,110 +1,42 @@
-import React, {useState, useEffect} from 'react';
+import React, { useState, useEffect } from 'react';
+import axios from "axios";
 import ProductCard from './ProductCard.js';
 import Header from './Header.js'
 
 export default function HomePage() {
-    const products = [
-        {
-            name: 'Bánh Tiramisu',
-            price: '30.0000đ'
-        },
-        {
-            name: 'Bánh trung thu',
-            price: '45.0000đ'
-        },
-        {
-            name: 'Bánh Bông Lan',
-            price: '20.0000đ'
-        },
-        {
-            name: 'Tokkbokki Siu Cay',
-            price: '25.0000đ'
-        },
-        {
-            name: 'Bánh Xèo',
-            price: '20.0000đ'
-        },
-        {
-            name: 'Sinh Tố matcha',
-            price: '15.0000đ'
-        },
-        {
-            name: 'Bánh Bông Lan',
-            price: '20.0000đ'
-        },
-        {
-            name: 'Tokkbokki Siu Cay',
-            price: '25.0000đ'
-        },
-        {
-            name: 'Bánh Xèo',
-            price: '20.0000đ'
-        },
-        {
-            name: 'Sinh Tố matcha',
-            price: '15.0000đ'
-        },
-        {
-            name: 'Sinh Tố matcha',
-            price: '15.0000đ'
-        },
-        {
-            name: 'Bánh Bông Lan',
-            price: '20.0000đ'
-        },
-        {
-            name: 'Tokkbokki Siu Cay',
-            price: '25.0000đ'
-        },
-        {
-            name: 'Bánh Xèo',
-            price: '20.0000đ'
-        },
-        {
-            name: 'Sinh Tố matcha',
-            price: '15.0000đ'
-        },
-        {
-            name: 'Bánh Tiramisu',
-            price: '30.0000đ'
-        },
-        {
-            name: 'Bánh trung thu',
-            price: '45.0000đ'
-        },
-        {
-            name: 'Bánh Bông Lan',
-            price: '20.0000đ'
-        },
-        {
-            name: 'Tokkbokki Siu Cay',
-            price: '25.0000đ'
-        },
-        {
-            name: 'Bánh Xèo',
-            price: '20.0000đ'
-        },
-        {
-            name: 'Sinh Tố matcha',
-            price: '15.0000đ'
-        },
-        {
-            name: 'Bánh Bông Lan',
-            price: '20.0000đ'
-        },
-        {
-            name: 'Tokkbokki Siu Cay',
-            price: '25.0000đ'
-        },
-        {
-            name: 'Bánh Xèo',
-            price: '20.0000đ'
-        },
-    ];
+    const [products, setProducts] = useState([]);
+    const [categories, setCategories] = useState([]);
+
+    useEffect(() => {
+        const fetchProducts = async () => {
+            try {
+                const response = await axios.get("http://localhost:5000/api/get-all-products");
+                console.log("Fetched successfully!");
+                setProducts(response.data);
+            }
+            catch {
+                console.error("Cannot fetch datat");
+            }
+        }
+
+        const fetchCategories = async () => {
+            try {
+                const response = await axios.get("http://localhost:5000/api/get-all-categories");
+                console.log("Fetched successfully!");
+                setCategories(response.data);
+            }
+            catch {
+                console.error("Cannot fetch data");
+            }
+        }
+
+        fetchCategories();
+        fetchProducts();
+    }, []);
 
     return (
         <div>
-            <Header/>
+            <Header />
             <div className='p-8'>
                 <div className='bg-gray-200 mb-10 p-3'>
                     <div className='flex justify-center text-2xl mb-2 font-semibold uppercase'>
@@ -131,9 +63,11 @@ export default function HomePage() {
                 </div>
                 <div className='flex px-40'>
                     <div className='flex flex-wrap gap-10 justify-center'>
-                        {products.map((product, index) => (
-                            <ProductCard key={index} product={product} />
-                        ))}
+
+                        {products.map((product) => {
+                            const category = categories.find(category => category.id === product.category_id);
+                            return <ProductCard key={product.id} product={product} category={category} />;
+                        })}
                     </div>
                 </div>
             </div>

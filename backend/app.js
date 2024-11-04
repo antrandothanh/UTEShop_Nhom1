@@ -1,7 +1,12 @@
 import express from 'express'
 import cors from 'cors'
 //import { generateOTP, sendOTP } from './otpSender.js'
-import { signUpNewUserAccount, db } from './database.js'
+import { 
+    signUpNewUserAccount, 
+    db, 
+    getAllProducts, 
+    getAllCategories,
+} from './database.js'
 import authRoutes from './routes/auth.js';
 
 /**Dieu*********** */
@@ -64,4 +69,32 @@ app.post('/api/sign-up', async (req, res) => {
 
 //     const result = await verifyOtp(email)
 // });
+
+app.get("/api/get-all-products", async (request, response) => {
+    try {
+        const products = await getAllProducts();
+        response.status(200).json((products));
+    }
+    catch {
+        response.status(500).json(
+            {
+                error: "fail to retrieve products",
+            }
+        );
+    }
+});
+
+app.get("/api/get-all-categories", async (request, response) => {
+    try {
+        const categories = await getAllCategories();
+        response.status(200).json((categories));
+    }
+    catch {
+        response.status(500).json(
+            {
+                error: "fail to retrieve categories",
+            }
+        );
+    }
+});
 

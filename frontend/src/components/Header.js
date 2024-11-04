@@ -26,8 +26,8 @@ const Header = () => {
     return (
         <div>
             <header className='sticky top-0 z-[20] mx-auto flex w-full items-center justify-start border-b border-gray-500 p-8'>
-                <div className="logo w-16 h-16 mr-12">
-                    <img src="/images/shopping-bag.png" alt="logo" />
+                <div className="text-2xl mx-12 uppercase font-bold">
+                    Clothes store
                 </div>
                 <div>
                     <ul className='flex'>
