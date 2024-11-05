@@ -8,6 +8,7 @@ import CartPage from './components/CartPage.js';
 import AboutPage from './components/AboutPage.js';
 import PaymentPage from './components/PaymentPage.js';
 import AdminLayout from './components/AdminUI/AdminLayout.js';
+import ProductDetailPage from './components/ProductDetailPage.js';
 
 const App = () => {
 
@@ -23,6 +24,7 @@ const App = () => {
                     <Route path='/verify-otp' element={<VerifyOTP />} />
                     <Route path='/payment' element={<PaymentPage />} />
                     <Route path='/admin//*' element={<AdminLayout />} />
+                    <Route path='/product-detail' element={<ProductDetailPage />} />
                 </Routes>
             </BrowserRouter>
         </div>

@@ -6,6 +6,7 @@ import {
     db, 
     getAllProducts, 
     getAllCategories,
+    getProductById,
 } from './database.js'
 import authRoutes from './routes/auth.js';
 
@@ -93,6 +94,21 @@ app.get("/api/get-all-categories", async (request, response) => {
         response.status(500).json(
             {
                 error: "fail to retrieve categories",
+            }
+        );
+    }
+});
+
+app.get("/api/product/:id", async (request, response) => {
+    try {
+        const id = parseInt(request.params.id);
+        const product = await getProductById(id);
+        response.status(200).json(product);
+    }
+    catch {
+        response.status(404).json(
+            {
+                error: "fail to retrieve product",
             }
         );
     }

@@ -80,6 +80,27 @@ export async function getAllCategories() {
     });
 }
 
+export async function getProductById(id) {
+    return new Promise((resolve, reject) => {
+        db.connect((error) => {
+            if (error) {
+                return reject(error);
+            }
+            const sql = `SELECT * FROM products WHERE id = ?`;
+            db.query(sql, [id], (error, results) => {
+                if (error) {
+                    console.error("Error getting product by ID:", error);
+                    return reject(error);
+                } else {
+                    console.log("Product retrieved successfully!");
+                    resolve(results);
+                }
+            });
+        });
+    });
+}
+
+
 // export async function addNewUserOTP(role, fullname, email, password, otp) {
 //     return new Promise((resolve, reject) => {
 //         db.connect((err) => {
