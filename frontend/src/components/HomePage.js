@@ -11,7 +11,6 @@ export default function HomePage() {
         const fetchProducts = async () => {
             try {
                 const response = await axios.get("http://localhost:5000/api/get-all-products");
-                console.log("Fetched successfully!");
                 setProducts(response.data);
             }
             catch {
@@ -22,7 +21,6 @@ export default function HomePage() {
         const fetchCategories = async () => {
             try {
                 const response = await axios.get("http://localhost:5000/api/get-all-categories");
-                console.log("Fetched successfully!");
                 setCategories(response.data);
             }
             catch {

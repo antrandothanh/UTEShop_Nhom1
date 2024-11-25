@@ -1,6 +1,5 @@
 import React from 'react';
 import { NavLink } from 'react-router-dom';
-import ProductDetailPage from './ProductDetailPage';
 const ProductCard = ({ product, category }) => {
     return (
         <div className='bg-white shadow-md hover:scale-105 duration-300'>
@@ -19,7 +18,7 @@ const ProductCard = ({ product, category }) => {
                         to="/product-detail"
                         state={
                             {
-                                from: product.id
+                                product_id: product.id
                             }
                         }
                         >
